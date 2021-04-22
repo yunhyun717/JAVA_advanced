@@ -1,22 +1,14 @@
 package exchange_;
 
-import java.util.Scanner;
-
 public class Value_Class {
 
-	public int money(int won, int how, double[] EX_RATE) {
-		int money = (int) (won / EX_RATE[how - 1]);
-		return money;
+	public void money(ExType_Class ext) {
+		ext.exchangeResult = ext.won / ext.EX_RATE[ext.how - 1];
+		ext.money = (int) (ext.won / ext.EX_RATE[ext.how - 1]);
 	}
 
-	public double exchangeResult(int won, int how, double[] EX_RATE) {
-		double exchangeResult = won / EX_RATE[how - 1];
-		return exchangeResult;
-	}
-
-	public int won_chg(double exchangeResult, int money, double[] EX_RATE, int how, int won) {
-		int won_chg = (int) ((exchangeResult - money) * EX_RATE[how - 1] / 10) * 10;
-		return won_chg;
+	public void won_chg(ExType_Class ext) {
+		ext.won_chg = (int) Math.floor((ext.exchangeResult - ext.money) * ext.EX_RATE[ext.how - 1]);
 	}
 
 }

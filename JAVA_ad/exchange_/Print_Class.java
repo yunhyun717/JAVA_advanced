@@ -1,7 +1,5 @@
 package exchange_;
 
-import java.util.Scanner;
-
 public class Print_Class {
 
 	public void input1() {
@@ -9,39 +7,34 @@ public class Print_Class {
 	}
 
 	public void input2() {
-		System.out.println("\n어떤 화폐로 환전할까요?\n1.USD\n2.EUR\n3.JPY");
+		System.out.println("\n어떤 화폐로 환전할까요?\n1.USD\n2.EUR\n3.JPY\nelse. 처음으로");
 	}
 
-	public void Exchange_Result(int how, int money, String[] EX, int[][] CHANGE) {
-		System.out.printf("\n%s로 환전 결과", EX[how]);
-		System.out.printf("\n지급 : %s %d\n", EX[how], money);
-		for (int i = 0; i < CHANGE[how].length; i++) {
-			int number = money / CHANGE[how][i];
+	public void Exchange_Result(ExType_Class ext) {
+		System.out.printf("\n%s로 환전 결과 : ", ext.EX[ext.how]);
+		System.out.printf("%s %d\n", ext.EX[ext.how], ext.money);
+		for (int i = 0; i < ext.CHANGE[ext.how].length; i++) {
+			int number = ext.money / ext.CHANGE[ext.how][i];
 			if (number != 0) {
-				System.out.printf("%s %d : %d 장 ", EX[how], CHANGE[how][i], number);
+				System.out.printf("%s %d : %d\n", ext.EX[ext.how], ext.CHANGE[ext.how][i], number);
+				ext.money = ext.money % ext.CHANGE[ext.how][i];
 			}
-			money = money % CHANGE[how][i];
 		}
 	}
 
-	public void change_won(double exchangeResult, int won_chg, int money, String[] EX, int[][] CHANGE,
-			double[] EX_RATE) {
-		System.out.printf("\n\n원화 거스름 : %d원\n", won_chg);
-		for (int i = 0; i < CHANGE[0].length; i++) {
-			int number = (int) won_chg / CHANGE[0][i];
+	public void change_won(ExType_Class ext) {
+		System.out.printf("\n\n원화 거스름돈 : %d원\n", ext.won_chg);
+		for (int i = 0; i < ext.CHANGE[0].length; i++) {
+			int number = (int) ext.won_chg / ext.CHANGE[0][i];
 			if (number != 0) {
-				System.out.printf("%s %d : %d 장 ", EX[0], CHANGE[0][i], number);
+				System.out.printf("%s %d : %d\n", ext.EX[0], ext.CHANGE[0][i], number);
+				ext.won_chg = ext.won_chg % ext.CHANGE[0][i];
 			}
-			won_chg = won_chg % CHANGE[0][i];
 		}
 		System.out.print("\n\n");
 	}
 
 	public void errorocu() {
-		System.out.println("\n잘못 입력하셨습니다.\n");
-	}
-
-	public void end() {
-		System.out.println("\n프로그램이 종료됩니다.\n");
+		System.out.println("\n처음으로 돌아갑니다.\n");
 	}
 }
