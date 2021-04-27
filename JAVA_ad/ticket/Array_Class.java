@@ -4,15 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Array_Class {
-	public String date;
-	public int dorncode;
-	public int agescode;
-	public int nums;
-	public double price;
-	public int treatcode;
-	private Calendar calendar;
-	private SimpleDateFormat sdf;
-	private Data_Class data = new Data_Class();
+	String date;
+	int dorncode;
+	int agescode;
+	int nums;
+	double price;
+	int treatcode;
+	Calendar calendar;
+	SimpleDateFormat sdf;
+	Data_Class data = new Data_Class();
 
 	public Array_Class(Data_Class data) {
 		calendar = Calendar.getInstance();

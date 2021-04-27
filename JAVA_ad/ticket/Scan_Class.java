@@ -35,12 +35,12 @@ public class Scan_Class {
 
 	public void temp(Data_Class data) {
 		print.price_result(data);
-		data.temp = scan.nextInt();
+		data.choice1 = scan.nextInt();
 	}
 	
 	public void temp2(Data_Class data) {
 		print.temp2();
-		data.temp2 = scan.nextInt();
+		data.choice2 = scan.nextInt();
 	}
 
 	protected void finalize() throws Throwable {

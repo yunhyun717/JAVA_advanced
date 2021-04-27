@@ -1,6 +1,8 @@
 package ticket;
 
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Method_Class {
 	Print_Class print;
@@ -35,9 +37,16 @@ public class Method_Class {
 				* (1 - data.TREAT[data.treatcode]));
 	}
 
-	public void temp(Data_Class data) {
-		print = new Print_Class();
-		print.total_price_result(data);
+	public void dataSort(Data_Class data) {
+		Comparator<Array_Class> byages = new Comparator<Array_Class>() {
+			public int compare(Array_Class a1, Array_Class a2) {
+				return (a1.agescode - a2.agescode);
+			}
+		};
+		Collections.sort(data.ticketArray, byages);
+		System.out.println(data.ticketArray.get(0).ages());
+		System.out.println(data.ticketArray.get(1).ages());
+		System.out.println(data.ticketArray.get(2).ages());
 	}
 
 }

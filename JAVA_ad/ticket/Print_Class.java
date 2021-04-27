@@ -1,7 +1,5 @@
 package ticket;
 
-import java.util.ArrayList;
-
 public class Print_Class {
 
 	public void inputDorN() {

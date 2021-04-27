@@ -18,8 +18,8 @@ public class Data_Class extends ConstValue_Class {
 	String treat; // 우대사항
 	int treatcode; // 우대사항 코드
 	int price; // 가격
-	int temp; // 계속 발권 or 종료
-	int temp2; // 새로운 주문 or 종료
+	int choice1; // 계속 발권 or 종료
+	int choice2; // 새로운 주문 or 종료
 	int totalprice; // 총 가격
 	int array_size;
 	

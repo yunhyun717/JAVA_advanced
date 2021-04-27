@@ -32,14 +32,14 @@ public class Ticket_Class {
 			try {
 				data = new Data_Class();
 				Ticket(data);
-				if (data.temp == 2) {
-					meth.temp(data);
+				if (data.choice1 == 2) {
+					meth.dataSort(data);
+					print.total_price_result(data);
 					scan.temp2(data);
-					if (data.temp2 == 2) {
+					if (data.choice2 == 2) {
 						file.file(data);
 						break;
 					}
-					break;
 				}
 			} catch (Exception e) {
 				print.errorocu();
