@@ -1,25 +1,22 @@
-package ticket;
+package report;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class File_Class {
 	private File file;
 	private FileWriter fw;
-	private Print_Class print;
-	private Data_Class data;
-	private Method_Class meth;
+	private FileReader fr;
+	private ConstValue_Class cons;
 
 	public File_Class() {
-		data = new Data_Class();
-		print = new Print_Class();
-		meth = new Method_Class();
-		file = new File(data.FILEPATH);
+		file = new File(cons.FILEPATH);
 	}
 
-	public void file(Total_Data_Class total) throws IOException {
-		fw = new FileWriter(file, true);
+	public void file_read() throws IOException {
+		fr = new FileReader(file, true);
 		if (file.length() == 0) {
 			fw.write(data.FILEMENU);
 		}

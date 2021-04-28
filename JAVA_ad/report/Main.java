@@ -1,4 +1,4 @@
-package ticket;
+package report;
 
 import java.io.IOException;
 

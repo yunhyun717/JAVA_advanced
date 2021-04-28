@@ -3,42 +3,41 @@ package ticket;
 import java.util.Calendar;
 
 public class Method_Class {
-	Print_Class print;
-
-	public void getAge(Var_Class var) {
+	
+	public void getAge(Data_Class data) {
 		Calendar calendar = Calendar.getInstance();
-		var.currentYear = calendar.get(Calendar.YEAR);
-		var.currentMonth = calendar.get(Calendar.MONTH) + 1;
-		var.currentDay = calendar.get(Calendar.DAY_OF_MONTH);
-		var.birthYear = Integer.parseInt(var.reginum.substring(0, 2));
-		if (var.reginum.substring(6,7).equals("1") || var.reginum.substring(6,7).equals("2")) {
-			var.birthYear += 1900;
-		} else {
-			var.birthYear += 2000;
+		data.current = new int [3];	data.birth = new int [3];
+		data.current[0] = calendar.get(Calendar.YEAR);
+		data.current[1] = calendar.get(Calendar.MONTH) + 1;
+		data.current[2] = calendar.get(Calendar.DAY_OF_MONTH);
+		data.birth[0] = Integer.parseInt(data.reginum.substring(0, 2))+1900;
+		if (data.reginum.charAt(6) == '3' || data.reginum.charAt(6) == '4') {
+			data.birth[0] += 100;
+		} 
+		data.birth[1] = Integer.parseInt(data.reginum.substring(2, 4));
+		data.birth[2] = Integer.parseInt(data.reginum.substring(4, 6));
+		data.age = data.current[0] - data.birth[0];
+
+		if (data.birth[1] * 100 + data.birth[2] > data.current[1] * 100 + data.current[2]) {
+			data.age--;
 		}
-		var.birthMonth = Integer.parseInt(var.reginum.substring(2, 4));
-		var.birthDay = Integer.parseInt(var.reginum.substring(4, 6));
-		var.age = var.currentYear - var.birthYear;
-		
-		if (var.birthMonth * 100 + var.birthDay > var.currentMonth * 100 + var.currentDay) {
-			var.age--;
-		}
-		var.agescode = 4;
-		for (int i = 3; i > -1; i--) {
-			if (var.age < var.AGESRAN[i]) {
-				var.agescode = i;
+		for (int i = 0; i < 5; i++) {
+			if (data.AGESRAN[i] < data.age) {
+				data.agescode = i;
 			}
 		}
 	}
-
-	public void price(Var_Class var) {
-		var.price = (int) (var.DORN_AGE_PRICE[var.dorncode][var.agescode] * var.nums * (1 - var.TREAT[var.treatcode]));
+	
+	public void add(Data_Class data) {
+		data.tickets[data.dorncode][data.agescode][data.treatcode] += data.nums;
 	}
 
-	public void temp(Var_Class var, Data_Class data) {
-		print = new Print_Class();
-		print.total_price_result(var, data.Arrayticket);
+	public int price(Data_Class data) {
+		return (int) (data.DORN_AGE_PRICE[data.dorncode][data.agescode] * (1 - data.TREAT[data.treatcode]));
 	}
 	
-
+	public int result_price(int i, int j, int k) {
+		ConstValue_Class cons = new ConstValue_Class();
+		return (int) (cons.DORN_AGE_PRICE[i][j] * (1 - cons.TREAT[k]));
+	}
 }

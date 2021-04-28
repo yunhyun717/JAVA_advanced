@@ -1,4 +1,4 @@
-package ticket;
+package report;
 
 public class ConstValue_Class {
 	final int[] AGESRAN = { 0, 2, 12, 18, 64 }; // 나이 구분

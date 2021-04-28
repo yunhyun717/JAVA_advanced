@@ -1,8 +1,13 @@
 package ticket;
 
-import java.util.ArrayList;
-
 public class Print_Class {
+
+	Method_Class meth;
+	ConstValue_Class cons;
+
+	public Print_Class() {
+		meth = new Method_Class();
+	}
 
 	public void inputDorN() {
 		System.out.println("권종을 선택하세요");
@@ -27,23 +32,30 @@ public class Print_Class {
 		System.out.println("5. 임산부");
 	}
 
-	public void price_result(Var_Class var) {
-		System.out.printf("가격은 %s 원 입니다.\n감사합니다.\n", var.price);
+	public void price_result(Data_Class data) {
+		System.out.printf("가격은 %s 원 입니다.\n감사합니다.\n\n", meth.price(data) * data.nums);
 		System.out.println("계속 발권 하시겠습니까?");
 		System.out.println("1. 티켓 발권");
 		System.out.println("2. 종료");
 	}
 
-	public void total_price_result(Var_Class var, ArrayList<Array_Class> Arrayticket) {
-		System.out.println("티켓 발권을 종료합니다. 감사합니다.");
+	public void total_price_result(Data_Class data) {
+		cons = new ConstValue_Class();
+		System.out.println("티켓 발권을 종료합니다. 감사합니다.\n");
 		System.out.println("=================== 에버랜드 ===================");
-		for (int i = 0; i < Arrayticket.size(); i++) {
-			System.out.printf("%s %s X %s %s원 *%s\n", Arrayticket.get(i).dorn(), Arrayticket.get(i).ages(),
-					Arrayticket.get(i).nums(), Arrayticket.get(i).price(), Arrayticket.get(i).treat());
-			var.totalprice += Arrayticket.get(i).price();
-
+		for (int i = 0; i < data.DORNTEMP.length; i++) {
+			for (int j = 0; j < data.AGESTEMP.length; j++) {
+				for (int k = 0; k < data.TREATTEMP.length; k++) {
+					if (data.tickets[i][j][k] != 0) {
+						System.out.printf("%s %s X %s %s원 *%s\n", data.DORNTEMP[i], data.AGESTEMP[j],
+								data.tickets[i][j][k], data.tickets[i][j][k] * meth.result_price(i, j, k),
+								data.TREATTEMP[k]);
+						data.totalprice += data.tickets[i][j][k] * meth.result_price(i, j, k);
+					}
+				}
+			}
 		}
-		System.out.printf("\n\n입장료 총액은 %s원 입니다.\n", var.totalprice);
+		System.out.printf("\n\n입장료 총액은 %s원 입니다.\n", data.totalprice);
 		System.out.println("================================================");
 	}
 
@@ -52,10 +64,14 @@ public class Print_Class {
 	}
 
 	public void thx() {
-		System.out.println("감사합니다.");
+		System.out.println("감사합니다.\n");
 	}
 
 	public void errorocu() {
 		System.out.println("\n처음으로 돌아갑니다.\n");
+	}
+
+	public void error() {
+		System.out.println("다시 입력하십시오.");
 	}
 }
