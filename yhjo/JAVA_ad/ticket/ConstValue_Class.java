@@ -3,7 +3,7 @@ package ticket;
 public class ConstValue_Class {
 	final int[] AGESRAN = { 0, 2, 12, 18, 64 }; // 나이 구분
 
-	final String[] AGESTEMP = { "유아", "소인", "청소년", "대인", "경로" };
+	final String[] AGESTEMP = { " 유아 ", " 소인 ", "청소년", " 대인 ", " 경로 " };
 
 	final int[][] DORN_AGE_PRICE = { { 0, 44000, 47000, 56000, 44000 }, { 0, 37000, 40000, 46000, 37000 } };
 	// 주야간 유아,소인,청소년,대인,경로 가격
@@ -12,7 +12,7 @@ public class ConstValue_Class {
 
 	final double[] TREAT = { .0, .4, .5, .2, .15 }; // 우대사항 할인율
 
-	final String[] TREATTEMP = { "우대적용 없음", "장애인 우대적용", "국가유공자 우대적용", "다자녀 우대적용", "임산부 우대적용" }; // 우대사항
+	final String[] TREATTEMP = { "없음", "장애인", "국가유공자", "다자녀", "임산부" }; // 우대사항
 
 	final String FILEPATH = "report.csv";
 

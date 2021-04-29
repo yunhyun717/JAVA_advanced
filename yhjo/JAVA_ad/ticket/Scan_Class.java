@@ -17,6 +17,7 @@ public class Scan_Class {
 		print.inputDorN();
 		while (true) {
 			data.dorncode = scan.nextInt() - 1;
+			System.out.println();
 			if (data.dorncode == 0 || data.dorncode == 1) {
 				break;
 			} else {
@@ -29,6 +30,7 @@ public class Scan_Class {
 		print.inputreginum();
 		while (true) {
 			data.reginum = scan2.nextLine();
+			System.out.println();
 			if (data.reginum.length() == 13) {
 				break;
 			} else {
@@ -41,6 +43,7 @@ public class Scan_Class {
 		print.inputnums();
 		while (true) {
 			data.nums = scan.nextInt();
+			System.out.println();
 			if (data.nums < 11 && data.nums > 0) {
 				break;
 			} else {
@@ -53,6 +56,7 @@ public class Scan_Class {
 		print.inputtreat();
 		while (true) {
 			data.treatcode = scan.nextInt() - 1;
+			System.out.println();
 			if (data.treatcode < 5 && data.treatcode > -1) {
 				break;
 			} else {
@@ -65,6 +69,7 @@ public class Scan_Class {
 		print.price_result(data);
 		while (true) {
 			data.choice1 = scan.nextInt();
+			System.out.println();
 			if (data.choice1 == 1 || data.choice1 == 2) {
 				break;
 			} else {
@@ -77,6 +82,7 @@ public class Scan_Class {
 		print.temp2();
 		while (true) {
 			data.choice2 = scan.nextInt();
+			System.out.println();
 			if (data.choice2 == 1 || data.choice2 == 2) {
 				break;
 			} else {

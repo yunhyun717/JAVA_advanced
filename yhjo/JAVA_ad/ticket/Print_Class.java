@@ -42,12 +42,12 @@ public class Print_Class {
 	public void total_price_result(Data_Class data) {
 		cons = new ConstValue_Class();
 		System.out.println("티켓 발권을 종료합니다. 감사합니다.\n");
-		System.out.println("=================== 에버랜드 ===================");
+		System.out.println("=================== 에버랜드 ======================");
 		for (int i = 0; i < data.DORNTEMP.length; i++) {
 			for (int j = 0; j < data.AGESTEMP.length; j++) {
 				for (int k = 0; k < data.TREATTEMP.length; k++) {
 					if (data.tickets[i][j][k] != 0) {
-						System.out.printf("%s %s X %s %s원 *%s\n", data.DORNTEMP[i], data.AGESTEMP[j],
+						System.out.printf("%s%6.4s X  %-4.2s%9.8s원  * %-10.10s\n", data.DORNTEMP[i], data.AGESTEMP[j],
 								data.tickets[i][j][k], data.tickets[i][j][k] * meth.result_price(i, j, k),
 								data.TREATTEMP[k]);
 						data.totalprice += data.tickets[i][j][k] * meth.result_price(i, j, k);
@@ -56,7 +56,7 @@ public class Print_Class {
 			}
 		}
 		System.out.printf("\n\n입장료 총액은 %s원 입니다.\n", data.totalprice);
-		System.out.println("================================================");
+		System.out.println("===================================================");
 	}
 
 	public void temp2() {

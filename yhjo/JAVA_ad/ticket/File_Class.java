@@ -27,9 +27,9 @@ public class File_Class {
 			for (int j = 0; j < data.AGESTEMP.length; j++) {
 				for (int k = 0; k < data.TREATTEMP.length; k++) {
 					if (total.tickets[i][j][k] != 0) {
-						fw.write(total.date + "," + data.DORNTEMP[i] + "," + data.AGESTEMP[j] + ","
+						fw.write(total.date + "," + data.DORNTEMP[i] + "," + data.AGESTEMP[j].trim() + ","
 								+ total.tickets[i][j][k] + "," + (total.tickets[i][j][k] * meth.result_price(i, j, k))
-								+ "," + data.TREATTEMP[k].replace("우대사항", "").trim() + "\n");
+								+ "," + data.TREATTEMP[k].replace("우대적용", "").trim() + "\n");
 					}
 				}
 			}
